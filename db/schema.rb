@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2022_04_24_140324) do
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "hidden", default: false
+    t.boolean "hidden", default: false, null: false
     t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
