@@ -6,15 +6,15 @@
 
   <div class="mt">
     <%= link_to fa_icon('pencil'), edit_question_path(@question), title: 'Изменить вопрос' %>
-    <%= button_to fa_icon('trash-o'), question_path(@question), method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } }, title: 'Удалить вопрос' %>
+    <%= button_to fa_icon('trash-o'), question_path(@question), method: :delete, form: { data: { turbo_confirm: 'Вы уверены, что хотите удалить вопрос?' } }, title: 'Удалить вопрос' %>
 
     <% unless @question.hidden? %>
-    <% hide_button_setting = { fa_icon: 'eye-slash', title: 'Скрыть' } %>
-      <% else %>
-    <% hide_button_setting = { fa_icon: 'eye', title: 'Показать' } %>
+      <% icon_setting = { fa_icon: 'eye-slash', title: 'Скрыть вопрос' } %>
+    <% else %>
+      <% icon_setting = { fa_icon: 'eye', title: 'Показать вопрос' } %>
     <% end %>
 
-    <%= button_to fa_icon(hide_button_setting[:fa_icon]), hide_question_path(@question), method: :put, title: hide_button_setting[:title] %>
+    <%= button_to fa_icon(icon_setting[:fa_icon]), hide_question_path(@question), method: :put, title: icon_setting[:title] %>
   </div>
 
   <p class="mt"><%= link_to "Все вопросы", questions_path %></p>
