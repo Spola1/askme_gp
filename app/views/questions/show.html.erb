@@ -10,9 +10,9 @@
 
       <% def change_hide_button(question) %>
         <% unless question.hidden? %>
-        <% { fa_icon: 'eye', title: 'Показать' } %>
-          <% else %>
         <% { fa_icon: 'eye-slash', title: 'Скрыть' } %>
+          <% else %>
+        <% { fa_icon: 'eye', title: 'Показать' } %>
         <% end %>
       <% end %>
 
