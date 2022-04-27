@@ -16,8 +16,8 @@
 </div>
 
 <% @questions.each do |question| %>
-  <% div_question = question.hidden? ? 'translucent' : '' %>
-  <div class='mt-sm container <%=div_question%>'>
+  <% div_class = question.hidden? ? 'translucent' : '' %>
+  <div class='mt-sm container <%=div_class%>'>
     <%= render question %>
   </div>
 <% end %>
