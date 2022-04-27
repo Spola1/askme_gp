@@ -2,4 +2,5 @@
   <h2 class="title-lg mb">Редактирование вопроса <%= @question.id %></h2>
 
   <%= render 'form', question: @question %>
+  <p class="mt">или <%= link_to "вернуться", :back %>
 </div>
