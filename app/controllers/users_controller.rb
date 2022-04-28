@@ -4,10 +4,16 @@ class UsersController < ApplicationController
   end
 
   def create
-    user_params = params.require(:user).permit(:name, :nickname, :email, :password)
+    user = User.create(user_params)
 
-    User.create(user_params)
+    session[:user_id] = user.id
 
     redirect_to root_path, notice: 'Вы успешно зарегистрировались!'
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :nickname, :email, :password)
   end
 end
