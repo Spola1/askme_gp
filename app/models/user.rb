@@ -4,10 +4,9 @@ class User < ApplicationRecord
   before_save :downcase_nickname
 
   validates :email, presence: true, uniqueness: true,
-    format: { with: /.+@.+\..+/i, message: "Invalid format. (example: user@user.com)" }
+    format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :nickname, uniqueness: true, presence: true,
-    length: { maximum: 40 }, format: { with: /\A[0-9A-Za-z_]+\z/,
-    message: "Use letters of the Latin alphabet, numbers and underlining" }
+    length: { maximum: 40 }, format: { with: /\A[0-9a-z_]+\z/ }
 
   def downcase_nickname
     nickname.downcase!
