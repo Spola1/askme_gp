@@ -14,6 +14,8 @@ class User < ApplicationRecord
 
   validates :color, format: { with: REGEX_COLOR }
 
+  has_many :questions
+
   def downcase_nickname
     nickname.downcase!
   end
