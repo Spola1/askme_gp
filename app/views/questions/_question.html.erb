@@ -1,3 +1,8 @@
+<div class="mb-sm text-sm">
+  Вопрос от пользователя: <%= link_to "#{display_nickname(question.author)}",
+    user_path(question.author), class: 'text-dark-red text-bold' %>
+</div>
+
 <div class="mb-sm">
   <%= simple_format h (question.body) %>
 </div>
