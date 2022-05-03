@@ -1,7 +1,10 @@
 class QuestionsController < ApplicationController
+  before_action :ensure_current_user, only: %i[update destroy edit]
   before_action :set_question_for_current_user, only: %i[update destroy edit hide]
 
   def create
+    question_params = params.require(:question).permit(:body, :user_id)
+
     @question = Question.new(question_params)
 
     if @question.save
@@ -14,6 +17,8 @@ class QuestionsController < ApplicationController
   end
 
   def update
+    question_params = params.require(:question).permit(:body, :answer)
+
     @question = Question.find(params[:id])
 
     if @question.update(question_params)
@@ -58,9 +63,7 @@ class QuestionsController < ApplicationController
   private
 
   def ensure_current_user
-
-  def question_params
-    params.require(:question).permit(:body, :user_id)
+    redirect_with_alert unless current_user.present?
   end
 
   def set_question_for_current_user
