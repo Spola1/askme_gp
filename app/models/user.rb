@@ -14,7 +14,7 @@ class User < ApplicationRecord
 
   validates :color, format: { with: REGEX_COLOR }
 
-  has_many :questions
+  has_many :questions, dependent: :delete_all
 
   def downcase_nickname
     nickname.downcase!

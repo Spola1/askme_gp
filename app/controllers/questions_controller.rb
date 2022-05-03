@@ -5,7 +5,7 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
 
     if @question.save
-      redirect_to question_path(@question), notice: 'Новый вопрос создан!'
+      redirect_to user_path(@question.user), notice: 'Новый вопрос создан!'
     else
       flash.now[:alert] = 'Неправильно заполнено поле "Текст вопроса"'
 
@@ -17,7 +17,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
 
     if @question.update(question_params)
-      redirect_to question_path(@question), notice: 'Вопрос изменён!'
+      redirect_to user_path(@question.user), notice: 'Вопрос изменён!'
     else
       flash.now[:alert] = 'Неправильно заполнено поле "Текст вопроса"'
 
@@ -26,9 +26,10 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
+    @user = @question.user
     @question.destroy
 
-    redirect_to questions_path, notice: 'Вопрос удалён!'
+    redirect_to user_path(@user), notice: 'Вопрос удалён!'
   end
 
   def show
@@ -40,7 +41,8 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @question = Question.new
+    @user = User.find(params[:user_id])
+    @question = Question.new(user: @user)
   end
 
   def edit
