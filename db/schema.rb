@@ -36,5 +36,4 @@ ActiveRecord::Schema.define(version: 2022_05_03_122414) do
     t.index ["nickname"], name: "index_users_on_nickname", unique: true
   end
 
-  add_foreign_key "questions", "users", column: "author_id"
 end
