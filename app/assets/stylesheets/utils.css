@@ -1,3 +1,7 @@
 .translucent {
   opacity: 50%;
 }
+
+.rounded {
+  border-radius: 50%;
+}
