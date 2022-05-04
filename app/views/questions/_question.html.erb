@@ -1,6 +1,10 @@
 <div class="mb-sm text-sm">
-  Вопрос от пользователя: <%= link_to "#{display_nickname(question.author)}",
-    user_path(question.author), class: 'text-dark-red text-bold' %>
+  <% if question.author.present?%>
+    Вопрос от:  <%= link_to display_nickname(question.author),
+      user_path(question.author_id), class: 'text-dark-red text-bold' %>
+  <% else %>
+    <p class="text-dark-red">Вопрос от анонимного пользователя</p>
+  <% end %>
 </div>
 
 <div class="mb-sm">
