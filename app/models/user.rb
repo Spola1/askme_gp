@@ -1,10 +1,10 @@
 class User < ApplicationRecord
   extend FriendlyId
-  friendly_id :name, use: :slugged
+  friendly_id :nickname, use: :slugged
 
   REGEX_NICKNAME = /\A[0-9a-z_]+\z/
   REGEX_COLOR = /\A#\h{3}{1,2}\z/
-  
+
   has_secure_password
 
   before_validation :downcase_nickname
