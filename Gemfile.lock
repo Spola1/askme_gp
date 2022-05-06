@@ -225,7 +225,7 @@ DEPENDENCIES
   capybara
   debug
   font-awesome-rails
-  friendly_id
+  friendly_id (~> 5.4.0)
   gravtastic
   importmap-rails
   jbuilder
