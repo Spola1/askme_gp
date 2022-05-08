@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   extend FriendlyId
   friendly_id :nickname, use: :slugged
+  include Gravtastic
+  gravtastic(secure: true, filetype: :png, size: 100, default: 'retro')
 
   REGEX_NICKNAME = /\A[0-9a-z_]+\z/
   REGEX_COLOR = /\A#\h{3}{1,2}\z/
@@ -17,8 +19,7 @@ class User < ApplicationRecord
 
   has_many :questions, dependent: :delete_all
 
-  include Gravtastic
-  gravtastic(secure: true, filetype: :png, size: 100, default: 'retro')
+  private
 
   def downcase_nickname
     nickname.downcase!
