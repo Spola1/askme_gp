@@ -8,8 +8,9 @@ class User < ApplicationRecord
   REGEX_COLOR = /\A#\h{3}{1,2}\z/
 
   has_secure_password
+  has_many :questions, dependent: :delete_all
 
-  before_validation :downcase_nickname
+  after_validation :downcase_nickname
 
   validates :email, presence: true, uniqueness: true,
     format: { with: URI::MailTo::EMAIL_REGEXP }
@@ -17,11 +18,9 @@ class User < ApplicationRecord
     length: { maximum: 40 }, format: { with: REGEX_NICKNAME }
   validates :color, format: { with: REGEX_COLOR }
 
-  has_many :questions, dependent: :delete_all
-
   private
 
   def downcase_nickname
-    nickname.downcase!
+    nickname&.downcase!
   end
 end
