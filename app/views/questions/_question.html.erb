@@ -40,7 +40,7 @@
       <%= link_to fa_icon(edit_icon_setting[:fa_icon]), edit_question_path(question),
         title: edit_icon_setting[:title], class: 'mr-sm' %>
       <%= button_to fa_icon('trash-o'), question_path(question),
-        method: :delete, title: 'Удалить', class: 'mr-sm' %>
+        method: :delete, title: 'Удалить', form: {data: {turbo_confirm: "Вы точно хотите удалить этот вопрос?"}}, class: 'mr-sm' %>
       <%= button_to fa_icon(hide_icon_setting[:fa_icon]), hide_question_path(question),
         method: :put, title: hide_icon_setting[:title] %>
     </div>

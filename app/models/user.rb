@@ -1,16 +1,18 @@
 class User < ApplicationRecord
   extend FriendlyId
-  friendly_id :nickname, use: :slugged
   include Gravtastic
-  gravtastic(secure: true, filetype: :png, size: 100, default: 'retro')
 
   REGEX_NICKNAME = /\A[0-9a-z_]+\z/
   REGEX_COLOR = /\A#\h{3}{1,2}\z/
 
-  has_secure_password
   has_many :questions, dependent: :delete_all
 
-  after_validation :downcase_nickname
+  has_secure_password
+
+  friendly_id :nickname, use: :slugged
+  gravtastic(secure: true, filetype: :png, size: 100, default: 'retro')
+
+  before_validation :downcase_nickname
 
   validates :email, presence: true, uniqueness: true,
     format: { with: URI::MailTo::EMAIL_REGEXP }
