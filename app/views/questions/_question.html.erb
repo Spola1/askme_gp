@@ -9,12 +9,12 @@
 </div>
 
 <div class="mb-sm">
-  <p class="mb-sm">Вопрос:</p> <%= simple_format h (question.body) %>
+  <p class="mb-sm text-grey text-sm">Вопрос:</p> <%= simple_format h (question.body) %>
 </div>
 
 <% if question.answer.present? %>
   <div class="mb-sm text-dark-red">
-    <p class="mb-sm">Ответ:</p> <%= question.answer %>
+    <p class="mb-sm text-grey text-sm">Ответ:</p> <%= question.answer %>
   </div>
 <% end %>
 
