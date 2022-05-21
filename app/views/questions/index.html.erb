@@ -10,6 +10,17 @@
   </div>
 </div>
 
+<% if @hashtags.present? %>
+  <div class="container mt-sm">
+    <h2 class="title-lg mb">
+      <%= inclination(@hashtags.count, 'Последний', 'Последние', 'Последние') %>
+      <%= @questions.count %>
+      <%= inclination(@hashtags.count, 'хештег', 'хештега', 'хештегов') %>
+    </h2>
+    <p><%= links_for_hashtags(@hashtags) %></p>
+  </div>
+<% end %>
+
 <div class="container mt-sm">
   <h2 class="title-lg">
     <%= inclination(@questions.count, 'Последний', 'Последние', 'Последние') %>

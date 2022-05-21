@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_06_151811) do
+ActiveRecord::Schema.define(version: 2022_05_21_080256) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
@@ -21,6 +21,24 @@ ActiveRecord::Schema.define(version: 2022_05_06_151811) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "hashtag_links", force: :cascade do |t|
+    t.integer "question_id"
+    t.integer "hashtag_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["hashtag_id"], name: "index_hashtag_links_on_hashtag_id"
+    t.index ["question_id"], name: "index_hashtag_links_on_question_id"
+  end
+
+  create_table "hashtags", force: :cascade do |t|
+    t.string "text", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_hashtags_on_slug", unique: true
+    t.index ["text"], name: "index_hashtags_on_text", unique: true
   end
 
   create_table "questions", force: :cascade do |t|

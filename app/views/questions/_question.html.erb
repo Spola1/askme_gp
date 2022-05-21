@@ -9,12 +9,18 @@
 </div>
 
 <div class="mb-sm">
-  <%= simple_format h (question.body) %>
+  <p class="mb-sm">Вопрос:</p> <%= simple_format h (question.body) %>
 </div>
 
 <% if question.answer.present? %>
   <div class="mb-sm text-dark-red">
-    <%= question.answer %>
+    <p class="mb-sm">Ответ:</p> <%= question.answer %>
+  </div>
+<% end %>
+
+<% if question.hashtags.present? %>
+  <div class="mb-sm text-light">
+    <%= links_for_hashtags(question.hashtags) %>
   </div>
 <% end %>
 

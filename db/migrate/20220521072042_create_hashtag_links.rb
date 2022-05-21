@@ -1,8 +1,8 @@
 class CreateHashtagLinks < ActiveRecord::Migration[7.0]
   def change
     create_table :hashtag_links do |t|
-      t.references :question, null: false, foreign_key: true
-      t.references :hashtag, null: false, foreign_key: true
+      t.belongs_to :question
+      t.belongs_to :hashtag
 
       t.timestamps
     end

@@ -5,7 +5,9 @@ body {
 
 a, button {
   color: #DC2F02;
+  text-decoration: none;
 }
+
 
 .title-lg {
   font-size: 175%;
@@ -45,4 +47,12 @@ a, button {
 
 .text-center {
   text-align: center;
+}
+
+.backround-orange {
+  background-color: #FE8020;
+}
+
+.text-black {
+  color: #191970;
 }
