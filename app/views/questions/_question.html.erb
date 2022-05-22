@@ -14,7 +14,7 @@
 
 <% if question.answer.present? %>
   <div class="mb-sm text-dark-red">
-    <p class="mb-sm text-grey text-sm">Ответ:</p> <%= question.answer %>
+    <p class="mb-sm text-grey text-sm">Ответ:</p> <%= simple_format h (question.answer) %>
   </div>
 <% end %>
 
