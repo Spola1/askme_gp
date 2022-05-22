@@ -17,11 +17,11 @@ class Question < ApplicationRecord
   private
 
   def question_hashtags
-    question_text = body + (answer || '')
+    question_text = "#{body} #{answer}"
     get_string_hashtags(question_text.downcase).uniq
   end
 
   def get_string_hashtags(str)
-    str.scan(/#[[:word:]-]+/)
+    str.scan(/#[\wА-я]+/)
   end
 end
