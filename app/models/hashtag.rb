@@ -1,4 +1,6 @@
 class Hashtag < ApplicationRecord
+  VALID_HASHTAG_REGEX = /#[[:word:]-]+/
+
   extend FriendlyId
 
   has_many :hashtag_links, dependent: :destroy

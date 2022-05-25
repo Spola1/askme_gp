@@ -22,6 +22,6 @@ class Question < ApplicationRecord
   end
 
   def get_string_hashtags(str)
-    str.scan(/#[\wА-я]+/)
+    str.scan(Hashtag::VALID_HASHTAG_REGEX)
   end
 end
