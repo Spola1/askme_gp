@@ -1,24 +1,42 @@
-# README
+# ask me
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![RubyOnRails](https://img.shields.io/badge/Ruby_on_Rails-CC0000?style=for-the-badge&logo=ruby-on-rails&logoColor=white)
 
-Things you may want to cover:
+Приложение-клон ask.fm, в котором вы можете задавать вопросы и получать ответы.
 
-* Ruby version
+В дополнение к этому реализовано:
 
-* System dependencies
+* Система хештегов
+* Выбор цвета профиля
+* Аватарки с помощью gravatar 
 
-* Configuration
+#### Запуск программы:
 
-* Database creation
+* Скопируйте репозиторий:
 
-* Database initialization
+```
+git clone git@github.com:Spola1/askme_gp.git
+```
 
-* How to run the test suite
+* Войдите в папку с игрой:
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+cd askme_gp
+```
 
-* Deployment instructions
+* Установите библиотеки:
 
-* ...
+```
+bundle install
+```
+* Запустите миграции:
+
+```
+rails db:migrate
+```
+
+Запустите сервер:
+
+```
+rails s
+```
