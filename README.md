@@ -30,10 +30,10 @@ cd askme_gp
 bundle install
 ```
 
-* Пропишите ключи в .env
+* Скопируйте содержимое .env.example в .env и пропишите туда свои ключи
 
 ```
-nano .env
+cp .env.example .env
 ```
 
 
