@@ -6,7 +6,7 @@ class QuestionsController < ApplicationController
     question_params = params.require(:question).permit(:body, :user_id)
 
     @question = Question.new(question_params)
-    @question.author = current_user
+    @question.author = current_user.id
 
     if check_captcha(@question) && @question.save
       redirect_to user_path(@question.user), notice: 'Новый вопрос создан!'
@@ -53,8 +53,7 @@ class QuestionsController < ApplicationController
     @question = Question.new(user: @user)
   end
 
-  def edit
-  end
+  def edit; end
 
   def hide
     @question.toggle!(:hidden)

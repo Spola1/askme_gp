@@ -1,4 +1,4 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.2'
@@ -7,8 +7,8 @@ gem 'babosa'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', require: false
 gem 'dotenv-rails'
-gem 'friendly_id', '~> 5.4.0'
 gem 'font-awesome-rails'
+gem 'friendly_id', '~> 5.4.0'
 gem 'gravtastic'
 gem 'importmap-rails'
 gem 'jbuilder'
@@ -20,7 +20,8 @@ gem 'stimulus-rails'
 gem 'turbo-rails'
 
 group :development, :test do
-  gem 'debug', platforms: %i[ mri mingw x64_mingw ]
+  gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'rubocop'
   gem 'sqlite3', '~> 1.4'
 end
 

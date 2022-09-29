@@ -15,9 +15,9 @@ class User < ApplicationRecord
   before_validation :downcase_nickname
 
   validates :email, presence: true, uniqueness: true,
-    format: { with: URI::MailTo::EMAIL_REGEXP }
+                    format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :nickname, uniqueness: true, presence: true,
-    length: { maximum: 40 }, format: { with: REGEX_NICKNAME }
+                       length: { maximum: 40 }, format: { with: REGEX_NICKNAME }
   validates :color, format: { with: REGEX_COLOR }
 
   private
